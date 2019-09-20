@@ -1,6 +1,8 @@
 from coolscrapy.items import HuxiuItem
 import scrapy
 from scrapy.shell import inspect_response
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
 
 class HuxiuSpider(scrapy.Spider):
     name = "huxiu"

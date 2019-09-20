@@ -25,3 +25,17 @@ class JsonWithEncodingPipeline(object):
 
     def spider_closed(self, spider):
         self.file.close()
+
+
+class Zufang58Pipeline(object):
+    def __init__(self):
+        self.file = open('zufang58.json', mode='w', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        jsondata = json.dumps(dict(item), ensure_ascii=False) + "\n"
+        self.file.write(jsondata)
+        return item
+
+    def close_spider(self, spider):
+        self.file.close()
+
